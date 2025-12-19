@@ -12,7 +12,7 @@ import { FAQ } from "@/components/sections/FAQ";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Footer } from "@/components/sections/Footer";
 import { meta } from "@/data/content";
-import { localBusinessSchema, faqSchema } from "@/data/schema";
+import { localBusinessSchema, faqSchema, organizationSchema, serviceSchema } from "@/data/schema";
 
 const Index = () => {
   return (
@@ -20,13 +20,50 @@ const Index = () => {
       <Helmet>
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
+        <meta name="keywords" content="bed bug exterminator, Richmond VA, pest control, bed bug removal, heat treatment, same day service, licensed exterminator, Henrico County, Chesterfield County" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="All-American Pest Control" />
+        <meta name="geo.region" content="US-VA" />
+        <meta name="geo.placename" content="Richmond, Virginia" />
+        <meta name="geo.position" content="37.5407;-77.4360" />
+        <meta name="ICBM" content="37.5407, -77.4360" />
         <link rel="canonical" href="https://aapestpro.com/bed-bug-exterminator-richmond-va" />
         
         {/* Open Graph */}
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://aapestpro.com/bed-bug-exterminator-richmond-va" />
+        <meta property="og:image" content="https://aapestpro.com/images/bed-bug-service-richmond.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="All-American Pest Control" />
+        
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.description} />
+        <meta name="twitter:image" content="https://aapestpro.com/images/bed-bug-service-richmond.jpg" />
+        
+        {/* Business Info */}
+        <meta name="contact" content="804-489-7465" />
+        <meta name="coverage" content="Richmond, VA and surrounding areas" />
+        
+        {/* Technical SEO */}
+        <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=yes" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        
+        {/* Performance */}
+        <link rel="preload" as="script" href="/js/critical.js" />
+        <meta name="theme-color" content="#1a1a1a" />
+        
+        {/* Sitemap */}
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -34,6 +71,12 @@ const Index = () => {
         </script>
         <script type="application/ld+json">
           {JSON.stringify(faqSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(organizationSchema)}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify(serviceSchema)}
         </script>
       </Helmet>
 

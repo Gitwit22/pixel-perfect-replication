@@ -99,3 +99,52 @@ export const faqSchema = {
     }
   ]
 };
+
+export const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://aapestpro.com/#organization",
+  "name": "All-American Pest Control",
+  "url": "https://aapestpro.com",
+  "logo": "https://aapestpro.com/logo.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-804-489-7465",
+    "contactType": "customer service",
+    "availableLanguage": "English",
+    "areaServed": "Richmond, VA"
+  },
+  "sameAs": [
+    "https://www.facebook.com/aapestcontrol",
+    "https://www.google.com/maps/place/All-American+Pest+Control"
+  ]
+};
+
+export const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://aapestpro.com/bed-bug-extermination",
+  "name": "Bed Bug Extermination Services",
+  "description": "Professional bed bug extermination and removal services in Richmond, VA. Same-day inspections, heat treatment, chemical treatment, and guaranteed results.",
+  "provider": {
+    "@id": "https://aapestpro.com/#organization"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Virginia"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Bed Bug Treatment Options",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Emergency Bed Bug Inspection",
+          "description": "Same-day bed bug inspection and assessment"
+        }
+      }
+    ]
+  }
+};

@@ -19,11 +19,14 @@ export const Hero = () => {
   return (
     <section className="bg-primary text-primary-foreground section-padding">
       <div className="container-narrow text-center">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+        <div className="text-xl sm:text-2xl lg:text-3xl font-medium mb-3 opacity-80">
+          AA Pest Control
+        </div>
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight" itemProp="name">
           {hero.headline}
         </h1>
         
-        <p className="text-lg sm:text-xl opacity-90 mb-6 max-w-2xl mx-auto">
+        <p className="text-lg sm:text-xl opacity-90 mb-6 max-w-2xl mx-auto" itemProp="description">
           {hero.subheadline}
         </p>
 
