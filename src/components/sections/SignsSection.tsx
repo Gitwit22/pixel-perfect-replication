@@ -2,8 +2,25 @@ import { Check, Phone, AlertTriangle } from "lucide-react";
 import { company, signs } from "@/data/content";
 
 export const SignsSection = () => {
-  const handlePhoneClick = () => {
-    console.log("phone_click");
+  const handlePhoneClick = async () => {
+    if (window.gtag) {
+      window.gtag("event", "phone_click", {
+        event_category: "lead",
+        event_label: "signs_section_phone",
+        value: 1,
+      });
+    }
+    try {
+      await fetch("/api/event", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event: "phone_click",
+          page: window.location.href,
+          ts: Date.now(),
+        }),
+      });
+    } catch {}
   };
 
   return (

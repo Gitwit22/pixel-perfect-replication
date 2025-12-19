@@ -14,8 +14,25 @@ export const StickyCallBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleClick = () => {
-    console.log("phone_click");
+  const handleClick = async () => {
+    if (window.gtag) {
+      window.gtag("event", "phone_click", {
+        event_category: "lead",
+        event_label: "sticky_call_bar_phone",
+        value: 1,
+      });
+    }
+    try {
+      await fetch("/api/event", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event: "phone_click",
+          page: window.location.href,
+          ts: Date.now(),
+        }),
+      });
+    } catch {}
   };
 
   if (!isVisible) return null;
