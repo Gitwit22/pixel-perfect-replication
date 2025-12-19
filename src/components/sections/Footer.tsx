@@ -2,13 +2,25 @@ import { Phone } from "lucide-react";
 import { company, footer } from "@/data/content";
 
 export const Footer = () => {
-  const handlePhoneClick = () => {
+  const handlePhoneClick = async () => {
     if (window.gtag) {
       window.gtag("event", "phone_click", {
         event_category: "lead",
         event_label: "footer_phone",
+        value: 1,
       });
     }
+    try {
+      await fetch("/api/event", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event: "phone_click",
+          page: window.location.href,
+          ts: Date.now(),
+        }),
+      });
+    } catch {}
   };
 
   return (

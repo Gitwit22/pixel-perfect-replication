@@ -8,8 +8,25 @@ const iconMap = {
 };
 
 export const Hero = () => {
-  const handlePhoneClick = () => {
-    console.log("phone_click");
+  const handlePhoneClick = async () => {
+    if (window.gtag) {
+      window.gtag("event", "phone_click", {
+        event_category: "lead",
+        event_label: "hero_phone",
+        value: 1,
+      });
+    }
+    try {
+      await fetch("/api/event", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          event: "phone_click",
+          page: window.location.href,
+          ts: Date.now(),
+        }),
+      });
+    } catch {}
   };
 
   const scrollToForm = () => {
