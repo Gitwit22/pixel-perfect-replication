@@ -6,63 +6,34 @@
 
 @layer base {
   :root {
-    /* Professional Blues - Trust & Authority */
-    --background: 210 20% 98%;
-    --foreground: 222 47% 11%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-
-    /* Deep Blue - Primary Brand Color */
-    --primary: 224 76% 40%;
-    --primary-foreground: 210 40% 98%;
-
-    /* Green - Action/CTA Color */
-    --secondary: 160 84% 29%;
-    --secondary-foreground: 0 0% 100%;
-
-    /* Neutral tones */
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 16% 47%;
-
-    /* Accent - for highlights */
-    --accent: 224 76% 48%;
-    --accent-foreground: 0 0% 100%;
-
-    /* Urgency Red - use sparingly */
-    --destructive: 0 84% 50%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 224 76% 40%;
-
-    --radius: 0.5rem;
-
-    /* Custom tokens for this landing page */
-    --hero-gradient: linear-gradient(135deg, hsl(224 76% 40%) 0%, hsl(224 76% 30%) 100%);
-    --cta-gradient: linear-gradient(135deg, hsl(160 84% 29%) 0%, hsl(160 84% 24%) 100%);
-    --urgency-gradient: linear-gradient(135deg, hsl(0 84% 50%) 0%, hsl(0 84% 45%) 100%);
-    --section-alt: 210 25% 97%;
-    --trust-badge-bg: 224 76% 96%;
-
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.1), 0 2px 4px -2px hsl(222 47% 11% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.1), 0 4px 6px -4px hsl(222 47% 11% / 0.1);
-    --shadow-cta: 0 4px 14px 0 hsl(160 84% 29% / 0.4);
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Central Virginia Professional Palette */
+    --background: #ECECEC;
+    --foreground: #2B2B2B;
+    --card: #F2F2F2;
+    --card-foreground: #2B2B2B;
+    --popover: #F2F2F2;
+    --popover-foreground: #2B2B2B;
+    --primary: #2F6B4F;
+    --primary-foreground: #FFFFFF;
+    --secondary: #4A5D6B;
+    --secondary-foreground: #FFFFFF;
+    --muted: #ECECEC;
+    --muted-foreground: #6F6F6F;
+    --accent: #2F6B4F;
+    --accent-foreground: #FFFFFF;
+    --destructive: #D94F4F;
+    --destructive-foreground: #FFFFFF;
+    --border: #E3E3E3;
+    --input: #E3E3E3;
+    --ring: #2F6B4F;
+    --radius: 16px;
+    --section-alt: #F2F2F2;
+    --trust-badge-bg: #F2F2F2;
+    /* Shadows for neumorphic design */
+    --shadow-sm: 4px 4px 8px #C8CCD0, -4px -4px 8px #FFFFFF;
+    --shadow-md: 6px 6px 12px #C8CCD0, -6px -6px 12px #FFFFFF;
+    --shadow-lg: 8px 8px 16px #C8CCD0, -8px -8px 16px #FFFFFF;
+    --shadow-cta: 0 4px 14px 0 #2F6B4F44;
   }
 
   .dark {
@@ -109,13 +80,11 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    @apply antialiased;
+    background-color: #ECECEC;
+    color: #2B2B2B;
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 }
 

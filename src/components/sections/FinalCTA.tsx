@@ -97,160 +97,149 @@ export const FinalCTA = () => {
   return (
     <section
       id="inspection-form"
-      className="section-padding bg-primary text-primary-foreground"
+      className="section-padding bg-[#2F6B4F] text-white"
     >
-      <div className="container-narrow">
-        <div className="text-center mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+      <div className="container-narrow flex flex-col items-center">
+        <div className="neu-card w-full max-w-3xl mx-auto mb-10 p-8 flex flex-col items-center bg-[#2F6B4F] text-white">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-white">
             {finalCTA.headline}
           </h2>
-          <p className="opacity-90 mb-6 max-w-xl mx-auto">
+          <p className="mb-6 max-w-xl mx-auto text-white/80">
             {finalCTA.subheadline}
           </p>
-
           {/* Phone Display */}
           <a
             href={`tel:${company.phoneTel}`}
             onClick={handlePhoneClick}
-            className="inline-flex items-center gap-3 text-3xl sm:text-4xl font-bold mb-2 hover:opacity-90 transition-opacity"
+            className="inline-flex items-center gap-3 text-4xl font-bold mb-2 text-white hover:opacity-90 transition-opacity neu-btn neu-btn--phone"
+            style={{ textShadow: '0 2px 8px #1a3c2a' }}
           >
-            <Phone className="h-8 w-8 animate-pulse" />
+            <Phone className="h-8 w-8 animate-pulse text-white" />
             {company.phone}
           </a>
-
-          <p className="text-sm opacity-80 flex items-center justify-center gap-2">
-            <Clock className="h-4 w-4" />
+          <p className="text-base flex items-center justify-center gap-2 text-white/80 mb-6">
+            <Clock className="h-4 w-4 text-white/80" />
             {finalCTA.availability}
           </p>
-        </div>
-
-        {/* Form */}
-        <div className="bg-card text-card-foreground rounded-xl p-6 sm:p-8 shadow-lg max-w-lg mx-auto">
-          {isSubmitted ? (
-            <div className="text-center py-6">
-              <CheckCircle className="h-16 w-16 text-secondary mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">
-                {form.confirmation.headline}
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                {form.confirmation.message}
-              </p>
-              <p className="text-sm text-muted-foreground mb-2">
-                {form.confirmation.urgentNote}
-              </p>
-
-              <a
-                href={`tel:${company.phoneTel}`}
-                onClick={handlePhoneClick}
-                className="inline-flex items-center gap-2 text-primary font-bold text-lg"
-              >
-                <Phone className="h-5 w-5" />
-                {company.phone}
-              </a>
-
-              <p className="text-sm text-muted-foreground mt-4">
-                {form.confirmation.closing}
-              </p>
-            </div>
-          ) : (
-            <>
-              <h3 className="text-xl font-bold text-center mb-6">
-                {form.headline}
-              </h3>
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium mb-1.5"
-                  >
-                    {form.fields.name.label} *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium mb-1.5"
-                  >
-                    {form.fields.phone.label} *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="address"
-                    className="block text-sm font-medium mb-1.5"
-                  >
-                    {form.fields.address.label} *
-                  </label>
-                  <input
-                    type="text"
-                    id="address"
-                    name="address"
-                    required
-                    value={formData.address}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="description"
-                    className="block text-sm font-medium mb-1.5"
-                  >
-                    {form.fields.description.label}
-                  </label>
-                  <textarea
-                    id="description"
-                    name="description"
-                    rows={3}
-                    value={formData.description}
-                    onChange={handleChange}
-                    placeholder={form.fields.description.placeholder}
-                    className="w-full px-4 py-3 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                  />
-                </div>
-
-                {submitError ? (
-                  <p className="text-sm font-medium text-destructive">
-                    {submitError}
-                  </p>
-                ) : null}
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-secondary text-secondary-foreground font-bold py-4 rounded-lg shadow-cta transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  {isSubmitting ? "Submitting..." : form.submitButton}
-                </button>
-
-                <p className="text-xs text-muted-foreground text-center">
-                  {form.disclaimer}
+          {/* Form */}
+          <div className="neu-card w-full max-w-2xl mx-auto p-10 sm:p-12 flex flex-col items-center justify-center bg-[#2F6B4F] text-white">
+            {isSubmitted ? (
+              <div className="text-center py-6">
+                <CheckCircle className="h-16 w-16 text-white mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-2 text-white">
+                  {form.confirmation.headline}
+                </h3>
+                <p className="text-white/80 mb-4">
+                  {form.confirmation.message}
                 </p>
-              </form>
-            </>
-          )}
+                <p className="text-sm text-white/80 mb-2">
+                  {form.confirmation.urgentNote}
+                </p>
+                <a
+                  href={`tel:${company.phoneTel}`}
+                  onClick={handlePhoneClick}
+                  className="inline-flex items-center gap-2 text-white font-bold text-lg"
+                >
+                  <Phone className="h-5 w-5 text-white" />
+                  {company.phone}
+                </a>
+                <p className="text-sm text-white/80 mt-4">
+                  {form.confirmation.closing}
+                </p>
+              </div>
+            ) : (
+              <>
+                <h3 className="text-xl font-bold text-center mb-6 text-white">
+                  {form.headline}
+                </h3>
+                <form onSubmit={handleSubmit} className="space-y-6 w-full flex flex-col items-center justify-center">
+                  <div className="w-full max-w-md mx-auto">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-1.5 text-white"
+                    >
+                      {form.fields.name.label} *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="neu-input w-full bg-white text-[#2B2B2B] placeholder:text-[#6F6F6F]"
+                    />
+                  </div>
+                  <div className="w-full max-w-md mx-auto">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium mb-1.5 text-white"
+                    >
+                      {form.fields.phone.label} *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="neu-input w-full bg-white text-[#2B2B2B] placeholder:text-[#6F6F6F]"
+                    />
+                  </div>
+                  <div className="w-full max-w-md mx-auto">
+                    <label
+                      htmlFor="address"
+                      className="block text-sm font-medium mb-1.5 text-white"
+                    >
+                      {form.fields.address.label} *
+                    </label>
+                    <input
+                      type="text"
+                      id="address"
+                      name="address"
+                      required
+                      value={formData.address}
+                      onChange={handleChange}
+                      className="neu-input w-full bg-white text-[#2B2B2B] placeholder:text-[#6F6F6F]"
+                    />
+                  </div>
+                  <div className="w-full max-w-md mx-auto">
+                    <label
+                      htmlFor="description"
+                      className="block text-sm font-medium mb-1.5 text-white"
+                    >
+                      {form.fields.description.label}
+                    </label>
+                    <textarea
+                      id="description"
+                      name="description"
+                      rows={3}
+                      value={formData.description}
+                      onChange={handleChange}
+                      placeholder={form.fields.description.placeholder}
+                      className="neu-input resize-none w-full bg-white text-[#2B2B2B] placeholder:text-[#6F6F6F]"
+                    />
+                  </div>
+                  {submitError ? (
+                    <p className="text-sm font-medium text-[#D94F4F]">
+                      {submitError}
+                    </p>
+                  ) : null}
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="neu-btn neu-btn-primary w-full max-w-md mx-auto font-bold py-4 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? "Submitting..." : form.submitButton}
+                  </button>
+                  <p className="text-xs text-white text-center">
+                    {form.disclaimer}
+                  </p>
+                </form>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </section>
