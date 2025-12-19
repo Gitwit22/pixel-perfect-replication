@@ -11,4 +11,24 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <!-- BEGIN GENERATED ROUTES -->
+  <!-- Each city gets two routes: treatment and inspection -->
+  <!-- prettier-ignore -->
+  <!-- Generated below -->
+  <!-- END GENERATED ROUTES -->
+  <!-- prettier-ignore -->
+  <!-- BEGIN GENERATED ROUTES -->
+  <!-- Each city gets two routes: treatment and inspection -->
+  <!-- Generated below -->
+  <!-- END GENERATED ROUTES -->
+  <!-- Service Area Pages -->
+  <!-- Generated below -->
+  <!-- END GENERATED ROUTES -->
+  <!-- prettier-ignore -->
+  <!-- BEGIN GENERATED ROUTES -->
+  <!-- Each city gets two routes: treatment and inspection -->
+  <!-- Generated below -->
+  <!-- END GENERATED ROUTES -->
+%SERVICE_AREA_ROUTES%
+</urlset>
 </urlset>
