@@ -44,9 +44,11 @@ export const Reviews = () => {
             Had a great experience with All-American Pest Control?
           </p>
           <a
-              href="#"
-              className="inline-flex items-center gap-2 bg-neu-accent text-neu-accent-foreground font-bold px-8 py-4 rounded-neu-md shadow-neu-raised-lg ring-1 ring-white/60 ring-inset transition-all hover:opacity-90 active:scale-95 text-lg"
-            >
+            href="https://share.google/1FBePe6GTHLwlRPUD"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-neu-accent text-neu-accent-foreground font-bold px-8 py-4 rounded-neu-md shadow-neu-raised-lg ring-1 ring-white/60 ring-inset transition-all hover:opacity-90 active:scale-95 text-lg"
+          >
             <ExternalLink className="h-4 w-4" />
             Leave a Google Review
           </a>
