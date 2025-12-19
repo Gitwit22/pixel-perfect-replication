@@ -2,8 +2,17 @@ import { useState } from "react";
 import { Phone, CheckCircle, Clock } from "lucide-react";
 import { company, finalCTA, form } from "@/data/content";
 
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 export const FinalCTA = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -11,27 +20,73 @@ export const FinalCTA = () => {
     description: "",
   });
 
-  const handlePhoneClick = () => {
-    console.log("phone_click");
+  const track = (eventName: string, label: string) => {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", eventName, {
+        event_category: "lead",
+        event_label: label,
+      });
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handlePhoneClick = () => {
+    if (window.gtag) {
+      window.gtag("event", "phone_click", {
+        event_category: "lead",
+        event_label: "final_cta_phone",
+      });
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("form_submission", formData);
-    setIsSubmitted(true);
+    setSubmitError(null);
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          source: "a2pestpros",
+          page: typeof window !== "undefined" ? window.location.href : "",
+        }),
+      });
+
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok || !data?.ok) {
+        const msg =
+          data?.error ||
+          `Lead submit failed (${res.status})`;
+        throw new Error(msg);
+      }
+
+      track("form_submit", "final_cta_form");
+      setIsSubmitted(true);
+    } catch (err: any) {
+      console.error("Lead submit error:", err);
+      setSubmitError(
+        "Submission failed. Please call the number above and we’ll take care of you right away."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   return (
-    <section id="inspection-form" className="section-padding bg-primary text-primary-foreground">
+    <section
+      id="inspection-form"
+      className="section-padding bg-primary text-primary-foreground"
+    >
       <div className="container-narrow">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3">
@@ -50,6 +105,7 @@ export const FinalCTA = () => {
             <Phone className="h-8 w-8 animate-pulse" />
             {company.phone}
           </a>
+
           <p className="text-sm opacity-80 flex items-center justify-center gap-2">
             <Clock className="h-4 w-4" />
             {finalCTA.availability}
@@ -61,11 +117,16 @@ export const FinalCTA = () => {
           {isSubmitted ? (
             <div className="text-center py-6">
               <CheckCircle className="h-16 w-16 text-secondary mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">{form.confirmation.headline}</h3>
-              <p className="text-muted-foreground mb-4">{form.confirmation.message}</p>
+              <h3 className="text-xl font-bold mb-2">
+                {form.confirmation.headline}
+              </h3>
+              <p className="text-muted-foreground mb-4">
+                {form.confirmation.message}
+              </p>
               <p className="text-sm text-muted-foreground mb-2">
                 {form.confirmation.urgentNote}
               </p>
+
               <a
                 href={`tel:${company.phoneTel}`}
                 onClick={handlePhoneClick}
@@ -74,6 +135,7 @@ export const FinalCTA = () => {
                 <Phone className="h-5 w-5" />
                 {company.phone}
               </a>
+
               <p className="text-sm text-muted-foreground mt-4">
                 {form.confirmation.closing}
               </p>
@@ -157,11 +219,18 @@ export const FinalCTA = () => {
                   />
                 </div>
 
+                {submitError ? (
+                  <p className="text-sm font-medium text-destructive">
+                    {submitError}
+                  </p>
+                ) : null}
+
                 <button
                   type="submit"
-                  className="w-full bg-secondary text-secondary-foreground font-bold py-4 rounded-lg shadow-cta transition-all hover:opacity-90 active:scale-[0.98]"
+                  disabled={isSubmitting}
+                  className="w-full bg-secondary text-secondary-foreground font-bold py-4 rounded-lg shadow-cta transition-all hover:opacity-90 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {form.submitButton}
+                  {isSubmitting ? "Submitting..." : form.submitButton}
                 </button>
 
                 <p className="text-xs text-muted-foreground text-center">

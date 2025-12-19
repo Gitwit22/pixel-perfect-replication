@@ -3,7 +3,12 @@ import { company, footer } from "@/data/content";
 
 export const Footer = () => {
   const handlePhoneClick = () => {
-    console.log("phone_click");
+    if (window.gtag) {
+      window.gtag("event", "phone_click", {
+        event_category: "lead",
+        event_label: "footer_phone",
+      });
+    }
   };
 
   return (
