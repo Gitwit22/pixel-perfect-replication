@@ -1,34 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml"
-        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core -->
   <url>
-    <loc>https://a2pestpros.com/bed-bug-exterminator-richmond-va</loc>
-    <lastmod>2025-12-18</lastmod>
+    <loc>https://a2pestpros.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- BEGIN GENERATED ROUTES -->
-  <!-- Each city gets two routes: treatment and inspection -->
-  <!-- prettier-ignore -->
-  <!-- Generated below -->
-  <!-- END GENERATED ROUTES -->
-  <!-- prettier-ignore -->
-  <!-- BEGIN GENERATED ROUTES -->
-  <!-- Each city gets two routes: treatment and inspection -->
-  <!-- Generated below -->
-  <!-- END GENERATED ROUTES -->
-  <!-- Service Area Pages -->
-  <!-- Generated below -->
-  <!-- END GENERATED ROUTES -->
-  <!-- prettier-ignore -->
-  <!-- BEGIN GENERATED ROUTES -->
-  <!-- Each city gets two routes: treatment and inspection -->
-  <!-- Generated below -->
-  <!-- END GENERATED ROUTES -->
-%SERVICE_AREA_ROUTES%
-</urlset>
+
+  <!-- Service Area Pages: Treatment + Inspection (2 per city) -->
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-richmond-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-richmond-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-henrico-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-henrico-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-short-pump-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-short-pump-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-glen-allen-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-glen-allen-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-highland-springs-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-highland-springs-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-varina-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-varina-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-sandston-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-sandston-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-lakeside-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-lakeside-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-chesterfield-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-chesterfield-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-midlothian-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-midlothian-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-north-chesterfield-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-north-chesterfield-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-chester-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-chester-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-bon-air-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-bon-air-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-moseley-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-moseley-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-brandermill-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-brandermill-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-mechanicsville-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-mechanicsville-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-ashland-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-ashland-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-hanover-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-hanover-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-atlee-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-atlee-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-petersburg-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-petersburg-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-colonial-heights-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-colonial-heights-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-hopewell-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-hopewell-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-prince-george-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-prince-george-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-powhatan-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-powhatan-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-goochland-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-goochland-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-amelia-court-house-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-amelia-court-house-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-farmville-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-farmville-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-new-kent-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-new-kent-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-williamsburg-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-williamsburg-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-toano-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-toano-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-fredericksburg-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-fredericksburg-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-spotsylvania-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-spotsylvania-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-stafford-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-stafford-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-king-george-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-king-george-va</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-newport-news-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-newport-news-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-hampton-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-hampton-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-norfolk-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-norfolk-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-virginia-beach-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-virginia-beach-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-chesapeake-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-chesapeake-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-portsmouth-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-portsmouth-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-suffolk-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-suffolk-va</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-charlottesville-va</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-charlottesville-va</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-albemarle-va</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-albemarle-va</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-waynesboro-va</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-waynesboro-va</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
+  <url><loc>https://a2pestpros.com/bed-bug-treatment-staunton-va</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://a2pestpros.com/bed-bug-inspection-staunton-va</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+
 </urlset>
