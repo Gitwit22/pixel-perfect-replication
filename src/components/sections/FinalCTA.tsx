@@ -229,7 +229,8 @@ export const FinalCTA = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="neu-btn neu-btn-primary w-full max-w-md mx-auto font-bold py-4 disabled:opacity-60 disabled:cursor-not-allowed"
+                    className="neu-btn neu-btn-primary w-full max-w-md mx-auto font-bold py-4 disabled:opacity-60 disabled:cursor-not-allowed border-2 border-[#2F6B4F] bg-white text-[#2F6B4F] hover:bg-[#E3E3E3] hover:text-[#4A5D6B]"
+                    style={{ boxShadow: '0 4px 16px #2F6B4F22' }}
                   >
                     {isSubmitting ? "Submitting..." : form.submitButton}
                   </button>

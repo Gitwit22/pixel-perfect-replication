@@ -30,22 +30,24 @@ export const Footer = () => {
         <h3 className="text-2xl font-bold mb-2">{company.name}</h3>
         <p className="text-text-muted text-base mb-6">{footer.tagline}</p>
 
-        <a
-          href={`tel:${company.phoneTel}`}
-          onClick={handlePhoneClick}
-          className="inline-flex items-center gap-2 bg-neu-accent text-neu-accent-foreground font-bold px-8 py-4 rounded-neu-md shadow-neu-raised-lg ring-1 ring-white/60 ring-inset mb-6 transition-all hover:opacity-90 active:scale-95 text-lg"
-        >
-          <Phone className="h-5 w-5" />
-          {company.phone}
-        </a>
-        {/* Request Inspection Button */}
-        <a
-          href="#inspection-form"
-          className="inline-block font-bold px-8 py-4 rounded-neu-md border-2 border-[#2F6B4F] text-[#2F6B4F] bg-white shadow-neu-raised-lg mb-6 transition-all hover:bg-[#E3E3E3] hover:text-[#4A5D6B]"
-          style={{ boxShadow: '0 4px 16px #2F6B4F22' }}
-        >
-          Request Inspection
-        </a>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-0 sm:gap-0 mb-6 w-full max-w-lg mx-auto">
+          <a
+            href={`tel:${company.phoneTel}`}
+            onClick={handlePhoneClick}
+            className="inline-flex items-center gap-2 bg-neu-accent text-neu-accent-foreground font-bold px-8 py-4 rounded-neu-md shadow-neu-raised-lg ring-1 ring-white/60 ring-inset transition-all hover:opacity-90 active:scale-95 text-lg border-r-2 border-[#2F6B4F]"
+            style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
+          >
+            <Phone className="h-5 w-5" />
+            {company.phone}
+          </a>
+          <a
+            href="#inspection-form"
+            className="inline-block font-bold px-8 py-4 rounded-neu-md border-2 border-[#2F6B4F] text-[#2F6B4F] bg-white shadow-neu-raised-lg transition-all hover:bg-[#E3E3E3] hover:text-[#4A5D6B]"
+            style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0, boxShadow: '0 4px 16px #2F6B4F22' }}
+          >
+            Request Inspection
+          </a>
+        </div>
 
         <p className="text-text-muted text-sm mb-4">{footer.license}</p>
 
