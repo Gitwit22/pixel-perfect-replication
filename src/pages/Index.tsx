@@ -18,6 +18,17 @@ const Index = () => {
   return (
     <>
       <Helmet>
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6GL0QCSZF"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-C6GL0QCSZF');
+          `}
+        </script>
+        
         <title>{meta.title}</title>
         <meta name="description" content={meta.description} />
         <meta name="keywords" content="bed bug exterminator, Richmond VA, pest control, bed bug removal, heat treatment, same day service, licensed exterminator, Henrico County, Chesterfield County" />
