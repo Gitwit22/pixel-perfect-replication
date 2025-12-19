@@ -38,6 +38,14 @@ export const Footer = () => {
           <Phone className="h-5 w-5" />
           {company.phone}
         </a>
+        {/* Request Inspection Button */}
+        <a
+          href="#inspection-form"
+          className="inline-block font-bold px-8 py-4 rounded-neu-md border-2 border-[#2F6B4F] text-[#2F6B4F] bg-white shadow-neu-raised-lg mb-6 transition-all hover:bg-[#E3E3E3] hover:text-[#4A5D6B]"
+          style={{ boxShadow: '0 4px 16px #2F6B4F22' }}
+        >
+          Request Inspection
+        </a>
 
         <p className="text-text-muted text-sm mb-4">{footer.license}</p>
 
