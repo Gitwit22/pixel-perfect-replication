@@ -1,10 +1,10 @@
 // All content data for the landing page
 
 export const company = {
-  name: "All-American Pest Control",
+  name: "A2 Pest Pros",
   phone: "804-489-7465",
   phoneTel: "+18044897465",
-  website: "https://aapestpro.com",
+  website: "https://a2pestpros.com",
 };
 
 export const meta = {
@@ -125,7 +125,7 @@ export const process = {
 };
 
 export const whyChooseUs = {
-  headline: "Why Richmond Chooses All-American Pest Control",
+  headline: "Why Richmond Chooses A2 Pest Pros",
   benefits: [
     {
       icon: "shield-check",
@@ -273,8 +273,8 @@ export const form = {
       required: false,
     },
   },
-  submitButton: "Request Inspection",
-  disclaimer: "By submitting this form, you agree to be contacted by All-American Pest Control regarding your inspection request. We respect your privacy and will never share your information.",
+  submitButton: "Submit Form",
+  disclaimer: "By submitting this form, you agree to be contacted by A2 Pest Pros regarding your inspection request. We respect your privacy and will never share your information.",
   confirmation: {
     headline: "Thank You—We Received Your Request",
     message: "We'll call you within 2 hours during business hours (typically much sooner) to schedule your free bed bug inspection.",

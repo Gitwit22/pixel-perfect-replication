@@ -3,9 +3,9 @@
 export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "PestControlService",
-  "name": "All-American Pest Control",
+  "name": "A2 Pest Pros",
   "description": "Professional bed bug extermination services in Richmond, VA. Licensed and insured pest control company offering heat treatment and chemical treatment for bed bug infestations.",
-  "url": "https://aapestpro.com/bed-bug-exterminator-richmond-va",
+  "url": "https://a2pestpros.com/bed-bug-exterminator-richmond-va",
   "telephone": "+1-804-489-7465",
   "address": {
     "@type": "PostalAddress",
@@ -103,10 +103,10 @@ export const faqSchema = {
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://aapestpro.com/#organization",
-  "name": "All-American Pest Control",
+  "@id": "https://a2pestpros.com/#organization",
+  "name": "A2 Pest Pros",
   "url": "https://aapestpro.com",
-  "logo": "https://aapestpro.com/logo.png",
+  "logo": "public/aa-pest-logo-icon.svg",
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+1-804-489-7465",
@@ -123,11 +123,11 @@ export const organizationSchema = {
 export const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://aapestpro.com/bed-bug-extermination",
+  "@id": "https://a2pestpros.com/bed-bug-extermination",
   "name": "Bed Bug Extermination Services",
   "description": "Professional bed bug extermination and removal services in Richmond, VA. Same-day inspections, heat treatment, chemical treatment, and guaranteed results.",
   "provider": {
-    "@id": "https://aapestpro.com/#organization"
+    "@id": "https://a2pestpros.com/#organization"
   },
   "areaServed": {
     "@type": "State",

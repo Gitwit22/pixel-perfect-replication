@@ -55,7 +55,7 @@ export const Hero = () => {
         <div className="bg-[#F2F2F2] rounded-neu-lg shadow-neu-raised p-8 w-full max-w-3xl flex flex-col items-center">
           <img src="/aa-pest-logo-bedbug.svg" alt="Bed Bug Logo" className="w-20 h-20 mb-4 drop-shadow-lg" />
           <div className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-3 text-[#4A5D6B] text-center">
-            AA Pest Control
+            A2 Pest Pros
           </div>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 leading-tight text-[#2B2B2B] text-center" itemProp="name">
             Bed Bug Exterminator
