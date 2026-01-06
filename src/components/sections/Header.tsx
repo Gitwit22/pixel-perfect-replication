@@ -1,8 +1,10 @@
-import { Phone } from "lucide-react";
+import { Phone, Menu } from "lucide-react";
 import { company } from "@/data/content";
 import { Link } from "react-router-dom";
+import React from "react";
 
 export const Header = () => {
+  const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
   const handlePhoneClick = async () => {
     if (window.gtag) {
       window.gtag("event", "phone_click", {
@@ -42,37 +44,25 @@ export const Header = () => {
           </div>
         </div>
 
-        {/* Nav links - desktop only for now */}
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6 text-xs font-semibold uppercase tracking-widest text-brand-black">
-          <Link to="/" className="hover:text-brand-green transition-colors">
-            Home
-          </Link>
-          <Link
-            to="/services"
-            className="hover:text-brand-green transition-colors"
-          >
-            Services
-          </Link>
-          <Link to="/areas" className="hover:text-brand-green transition-colors">
-            Areas
-          </Link>
-          <Link to="/reviews" className="hover:text-brand-green transition-colors">
-            Reviews
-          </Link>
-          <a href="/blog" className="hover:text-brand-green transition-colors">
-            Blog
-          </a>
-          <Link to="/contact" className="hover:text-brand-green transition-colors">
-            Contact
-          </Link>
-          <Link
-            to="/instant-quote"
-            className="hover:text-brand-green transition-colors"
-          >
-            Instant Quote
-          </Link>
-         
+          <Link to="/" className="hover:text-brand-green transition-colors">Home</Link>
+          <Link to="/services" className="hover:text-brand-green transition-colors">Services</Link>
+          <Link to="/areas" className="hover:text-brand-green transition-colors">Areas</Link>
+          <Link to="/reviews" className="hover:text-brand-green transition-colors">Reviews</Link>
+          <a href="/blog" className="hover:text-brand-green transition-colors">Blog</a>
+          <Link to="/contact" className="hover:text-brand-green transition-colors">Contact</Link>
+          <Link to="/instant-quote" className="hover:text-brand-green transition-colors">Instant Quote</Link>
         </nav>
+
+        {/* Mobile Nav Toggle */}
+        <button
+          className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-brand-green"
+          aria-label="Open navigation menu"
+          onClick={() => setMobileNavOpen((open) => !open)}
+        >
+          <Menu className="h-6 w-6 text-brand-black" />
+        </button>
 
         {/* Call button */}
         <a
@@ -84,6 +74,21 @@ export const Header = () => {
           <span>{company.phone}</span>
         </a>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {mobileNavOpen && (
+        <nav className="md:hidden bg-white border-t border-brand-green shadow-lg absolute top-full left-0 w-full z-40 animate-fade-in">
+          <ul className="flex flex-col gap-2 py-4 px-6 text-xs font-semibold uppercase tracking-widest text-brand-black">
+            <li><Link to="/" className="py-2 px-2 hover:text-brand-green transition-colors" onClick={() => setMobileNavOpen(false)}>Home</Link></li>
+            <li><Link to="/services" className="py-2 px-2 hover:text-brand-green transition-colors" onClick={() => setMobileNavOpen(false)}>Services</Link></li>
+            <li><Link to="/areas" className="py-2 px-2 hover:text-brand-green transition-colors" onClick={() => setMobileNavOpen(false)}>Areas</Link></li>
+            <li><Link to="/reviews" className="py-2 px-2 hover:text-brand-green transition-colors" onClick={() => setMobileNavOpen(false)}>Reviews</Link></li>
+            <li><a href="/blog" className="py-2 px-2 hover:text-brand-green transition-colors" onClick={() => setMobileNavOpen(false)}>Blog</a></li>
+            <li><Link to="/contact" className="py-2 px-2 hover:text-brand-green transition-colors" onClick={() => setMobileNavOpen(false)}>Contact</Link></li>
+            <li><Link to="/instant-quote" className="py-2 px-2 hover:text-brand-green transition-colors" onClick={() => setMobileNavOpen(false)}>Instant Quote</Link></li>
+          </ul>
+        </nav>
+      )}
     </header>
   );
 };
