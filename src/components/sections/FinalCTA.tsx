@@ -97,10 +97,10 @@ export const FinalCTA = () => {
   return (
     <section
       id="inspection-form"
-      className="section-padding bg-[#2F6B4F] text-white"
+      className="section-padding bg-brand-black text-white"
     >
       <div className="container-narrow flex flex-col items-center">
-        <div className="neu-card w-full max-w-3xl mx-auto mb-10 p-8 flex flex-col items-center bg-[#2F6B4F] text-white">
+        <div className="neu-card w-full max-w-3xl mx-auto mb-10 p-8 flex flex-col items-center bg-brand-black text-white border border-brand-gold/40 rounded-neu-lg shadow-neu-raised-lg">
           <h2 className="text-2xl sm:text-3xl font-bold mb-3 text-white">
             {finalCTA.headline}
           </h2>
@@ -109,20 +109,20 @@ export const FinalCTA = () => {
           </p>
           {/* Phone Display */}
           <a
-            href={`tel:${company.phoneTel}`}
+href={company.phoneHref}
             onClick={handlePhoneClick}
-            className="inline-flex items-center gap-3 text-4xl font-bold mb-2 text-white hover:opacity-90 transition-opacity neu-btn neu-btn--phone"
-            style={{ textShadow: '0 2px 8px #1a3c2a' }}
+            className="inline-flex items-center gap-3 text-4xl font-bold mb-2 text-brand-gold hover:text-white transition-colors"
+            style={{ textShadow: "0 3px 12px #000000AA" }}
           >
-            <Phone className="h-8 w-8 animate-pulse text-white" />
-            {company.phone}
+            <Phone className="h-8 w-8 animate-pulse text-brand-gold" />
+            <span>{company.phone}</span>
           </a>
           <p className="text-base flex items-center justify-center gap-2 text-white/80 mb-6">
             <Clock className="h-4 w-4 text-white/80" />
             {finalCTA.availability}
           </p>
           {/* Form */}
-          <div className="neu-card w-full max-w-2xl mx-auto p-10 sm:p-12 flex flex-col items-center justify-center bg-[#2F6B4F] text-white">
+          <div className="neu-card w-full max-w-2xl mx-auto p-10 sm:p-12 flex flex-col items-center justify-center bg-[#111827] text-white rounded-neu-lg border border-brand-gold/30 shadow-neu-raised-lg">
             {isSubmitted ? (
               <div className="text-center py-6">
                 <CheckCircle className="h-16 w-16 text-white mx-auto mb-4" />
@@ -136,7 +136,7 @@ export const FinalCTA = () => {
                   {form.confirmation.urgentNote}
                 </p>
                 <a
-                  href={`tel:${company.phoneTel}`}
+href={company.phoneHref}
                   onClick={handlePhoneClick}
                   className="inline-flex items-center gap-2 text-white font-bold text-lg"
                 >
@@ -167,7 +167,7 @@ export const FinalCTA = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="neu-input w-full bg-white text-[#2B2B2B] placeholder:text-[#6F6F6F]"
+                      className="neu-input w-full bg-white text-[#111827] placeholder:text-[#6F6F6F]"
                     />
                   </div>
                   <div className="w-full max-w-md mx-auto">
@@ -184,7 +184,7 @@ export const FinalCTA = () => {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      className="neu-input w-full bg-white text-[#2B2B2B] placeholder:text-[#6F6F6F]"
+                      className="neu-input w-full bg-white text-[#111827] placeholder:text-[#6F6F6F]"
                     />
                   </div>
                   <div className="w-full max-w-md mx-auto">
@@ -201,7 +201,7 @@ export const FinalCTA = () => {
                       required
                       value={formData.address}
                       onChange={handleChange}
-                      className="neu-input w-full bg-white text-[#2B2B2B] placeholder:text-[#6F6F6F]"
+                      className="neu-input w-full bg-white text-[#111827] placeholder:text-[#6F6F6F]"
                     />
                   </div>
                   <div className="w-full max-w-md mx-auto">
@@ -218,7 +218,7 @@ export const FinalCTA = () => {
                       value={formData.description}
                       onChange={handleChange}
                       placeholder={form.fields.description.placeholder}
-                      className="neu-input resize-none w-full bg-white text-[#2B2B2B] placeholder:text-[#6F6F6F]"
+                      className="neu-input resize-none w-full bg-white text-[#111827] placeholder:text-[#6F6F6F]"
                     />
                   </div>
                   {submitError ? (
@@ -226,14 +226,24 @@ export const FinalCTA = () => {
                       {submitError}
                     </p>
                   ) : null}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="neu-btn neu-btn-primary w-full max-w-md mx-auto font-bold py-4 disabled:opacity-60 disabled:cursor-not-allowed border-2 border-[#2F6B4F] bg-white text-[#2F6B4F] hover:bg-[#E3E3E3] hover:text-[#4A5D6B]"
-                    style={{ boxShadow: '0 4px 16px #2F6B4F22' }}
-                  >
-                    {isSubmitting ? "Submitting..." : form.submitButton}
-                  </button>
+                  <div className="w-full max-w-md mx-auto flex flex-col gap-3">
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full font-bold py-4 rounded-full bg-brand-gold text-brand-black shadow-neu-raised-lg disabled:opacity-60 disabled:cursor-not-allowed hover:bg-brand-gold-dark transition-colors"
+                      style={{ boxShadow: "0 4px 16px #F4C43077" }}
+                    >
+                      {isSubmitting ? "Submitting..." : form.submitButton}
+                    </button>
+                    <a
+                      href={company.phoneHref}
+                      onClick={handlePhoneClick}
+                      className="w-full inline-flex items-center justify-center gap-2 rounded-full border border-white/70 text-white py-3 text-sm font-semibold hover:bg-white/10 transition-colors"
+                    >
+                      <Phone className="h-4 w-4" />
+                      Prefer to talk now? Call us.
+                    </a>
+                  </div>
                   <p className="text-xs text-white text-center">
                     {form.disclaimer}
                   </p>

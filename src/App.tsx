@@ -7,7 +7,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ServiceAreaBedBugs from "./pages/ServiceAreaBedBugs";
+import BlogIndex from "./pages/BlogIndex";
+import BlogPost from "./pages/BlogPost";
+import Services from "./pages/Services";
+import Areas from "./pages/Areas";
+import Reviews from "./pages/Reviews";
+import Contact from "./pages/Contact";
+import InstantQuote from "./pages/InstantQuote";
 import { serviceAreasVa } from "./data/serviceAreasVa";
+import { company } from "@/data/content";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +28,13 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/areas" element={<Areas />} />
+            <Route path="/reviews" element={<Reviews />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/instant-quote" element={<InstantQuote />} />
+            <Route path="/blog" element={<BlogIndex />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             {/* Service Area Bed Bug Routes */}
             {serviceAreasVa.map((area) => [
               <Route
@@ -30,7 +45,7 @@ const App = () => (
                     city={area.cityName}
                     serviceType="treatment"
                     countyLine="Henrico County & surrounding areas"
-                    phone="804-489-7465"
+                    phone={company.phone}
                     mapQuery={`${area.cityName}, VA`}
                     slugCity={area.slugCity}
                   />
@@ -44,13 +59,27 @@ const App = () => (
                     city={area.cityName}
                     serviceType="inspection"
                     countyLine="Henrico County & surrounding areas"
-                    phone="804-489-7465"
+                    phone={company.phone}
                     mapQuery={`${area.cityName}, VA`}
                     slugCity={area.slugCity}
                   />
                 }
               />,
             ])}
+            <Route path="/service-areas" element={<Areas />} />
+            <Route
+              path="/service-areas/:slug"
+              element={
+                <ServiceAreaBedBugs
+                  city=""
+                  serviceType="treatment"
+                  countyLine=""
+                  phone={company.phone}
+                  mapQuery=""
+                  slugCity=""
+                />
+              }
+            />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

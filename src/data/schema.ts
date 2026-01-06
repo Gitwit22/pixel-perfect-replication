@@ -1,57 +1,97 @@
 // Structured Data for SEO
+import { company } from "./content";
 
-export const localBusinessSchema = {
+type LocalBusinessSchemaProps = {
+  cityName: string;
+  slugCity: string;
+};
+
+export const localBusinessSchema = ({
+  cityName,
+  slugCity,
+}: LocalBusinessSchemaProps) => ({
   "@context": "https://schema.org",
   "@type": "PestControlService",
-  "name": "A2 Pest Pros",
-  "description": "Professional bed bug extermination services in Richmond, VA. Licensed and insured pest control company offering heat treatment and chemical treatment for bed bug infestations.",
-  "url": "https://a2pestpros.com/bed-bug-exterminator-richmond-va",
-  "telephone": "+1-804-489-7465",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Richmond",
+
+  "@id": `${company.website}/service-areas/${slugCity}#pestcontrol`,
+
+  "name": `${company.name} – Pest Control in ${cityName}, VA`,
+
+  "description": `Professional pest control services in ${cityName}, VA. ${company.name} provides expert bed bug treatment, roach control, ant control, rodent prevention, and long-term pest management solutions for homes and businesses.`,
+
+  "url": `${company.website}/service-areas/${slugCity}`,
+
+  "telephone": company.phone,
+
+  "priceRange": "$$",
+
+  "openingHours": [
+    "Mo-Fr 08:00-18:00",
+    "Sa 09:00-15:00"
+  ],
+
+  "areaServed": {
+    "@type": "City",
+    "name": cityName,
     "addressRegion": "VA",
     "addressCountry": "US"
   },
-  "areaServed": [
-    { "@type": "City", "name": "Richmond", "sameAs": "https://en.wikipedia.org/wiki/Richmond,_Virginia" },
-    { "@type": "County", "name": "Henrico County" },
-    { "@type": "County", "name": "Chesterfield County" },
-    { "@type": "County", "name": "Hanover County" }
-  ],
-  "priceRange": "$$",
-  "paymentAccepted": "Cash, Credit Card",
+
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": cityName,
+    "addressRegion": "VA",
+    "addressCountry": "US"
+  },
+
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Bed Bug Services",
+    "name": "Pest Control Services",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Bed Bug Inspection",
-          "description": "Professional bed bug inspection to confirm infestation and determine treatment approach"
+          "name": "Bed Bug Inspection and Treatment",
+          "areaServed": cityName
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Bed Bug Heat Treatment",
-          "description": "Chemical-free bed bug elimination using controlled heat"
+          "name": "Roach and Ant Control",
+          "areaServed": cityName
         }
       },
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Bed Bug Chemical Treatment",
-          "description": "EPA-registered chemical treatment for bed bug elimination"
+          "name": "Rodent Prevention and Exclusion",
+          "areaServed": cityName
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Ongoing Pest Prevention Plans",
+          "areaServed": cityName
         }
       }
     ]
+  },
+
+
+  "provider": {
+    "@type": "Organization",
+    "name": company.name,
+    "url": company.website,
+    "telephone": company.phone
   }
-};
+});
+
 
 export const faqSchema = {
   "@context": "https://schema.org",
@@ -103,13 +143,13 @@ export const faqSchema = {
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://a2pestpros.com/#organization",
-  "name": "A2 Pest Pros",
-  "url": "https://aapestpro.com",
+  "@id": `${company.website}/#organization`,
+  "name": company.name,
+  "url": company.website,
   "logo": "public/aa-pest-logo-icon.svg",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-804-489-7465",
+    "telephone": company.phone,
     "contactType": "customer service",
     "availableLanguage": "English",
     "areaServed": "Richmond, VA"
@@ -123,11 +163,11 @@ export const organizationSchema = {
 export const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://a2pestpros.com/bed-bug-extermination",
+  "@id": `${company.website}/bed-bug-extermination`,
   "name": "Bed Bug Extermination Services",
   "description": "Professional bed bug extermination and removal services in Richmond, VA. Same-day inspections, heat treatment, chemical treatment, and guaranteed results.",
   "provider": {
-    "@id": "https://a2pestpros.com/#organization"
+    "@id": `${company.website}/#organization`
   },
   "areaServed": {
     "@type": "State",

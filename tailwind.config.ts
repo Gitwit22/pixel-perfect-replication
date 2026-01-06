@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
-export default {
+const config: Config = {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
@@ -27,22 +28,18 @@ export default {
           primary: '#2B2B2B',
           muted: '#6F6F6F',
         },
-      },
-      borderRadius: {
-        'neu-sm': '12px',
-        'neu-md': '16px',
-        'neu-lg': '20px',
-        'neu-xl': '24px',
-      },
-      fontFamily: {
-        sans: ['Poppins', 'system-ui', 'sans-serif'],
-      },
-      boxShadow: {
-        'neu-raised': '6px 6px 12px #C8CCD0, -6px -6px 12px #FFFFFF',
-        'neu-raised-sm': '4px 4px 8px #C8CCD0, -4px -4px 8px #FFFFFF',
-        'neu-raised-lg': '8px 8px 16px #C8CCD0, -8px -8px 16px #FFFFFF',
-        'neu-inset': 'inset 4px 4px 8px #C8CCD0, inset -4px -4px 8px #FFFFFF',
-        'neu-pressed': 'inset 3px 3px 6px #C8CCD0, inset -3px -3px 6px #FFFFFF',
+        // Brand palette from design-colors.html (green / black / gold)
+        brand: {
+          green: '#2F6B4F',
+          'green-dark': '#1E4533',
+          'green-light': '#3D8A65',
+          black: '#1A1A1A',
+          gold: '#F4C430',
+          'gold-dark': '#D4A017',
+          white: '#FFFFFF',
+          'gray-light': '#F5F5F5',
+          gray: '#6B6B6B',
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -50,6 +47,11 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
+        'neu-raised': '6px 6px 12px #C8CCD0, -6px -6px 12px #FFFFFF',
+        'neu-raised-sm': '4px 4px 8px #C8CCD0, -4px -4px 8px #FFFFFF',
+        'neu-raised-lg': '8px 8px 16px #C8CCD0, -8px -8px 16px #FFFFFF',
+        'neu-inset': 'inset 4px 4px 8px #C8CCD0, inset -4px -4px 8px #FFFFFF',
+        'neu-pressed': 'inset 3px 3px 6px #C8CCD0, inset -3px -3px 6px #FFFFFF',
         sm: "var(--shadow-sm)",
         md: "var(--shadow-md)",
         lg: "var(--shadow-lg)",
@@ -86,5 +88,9 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config;
+  plugins: [tailwindcssAnimate as unknown as typeof tailwindcssAnimate],
+};
+
+
+
+export default config;

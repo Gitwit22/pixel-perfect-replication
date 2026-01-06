@@ -24,17 +24,20 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-neu-surface text-text-primary py-12 border-t border-neu-inset shadow-neu-inset ring-1 ring-white/60 ring-inset">
+    <footer className="bg-brand-black text-white py-12 border-t border-brand-black/80">
       <div className="container-narrow text-center">
-        <img src="/aa-pest-logo-horizontal.svg" alt="AA Pest Control Logo" className="mx-auto mb-2 w-48 h-auto" />
-        <h3 className="text-2xl font-bold mb-2">{company.name}</h3>
-        <p className="text-text-muted text-base mb-6">{footer.tagline}</p>
+        <img src="/aa-pest-logo-horizontal.svg" alt={`${company.name} Logo`} className="mx-auto mb-4 w-48 h-auto opacity-90" />
+        <h3 className="text-2xl font-bold mb-1">{company.name}</h3>
+        <p className="text-sm text-white/70 mb-1">{footer.tagline}</p>
+        <p className="text-xs text-white/60 mb-6 tracking-wide uppercase">
+          {footer.license}
+        </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-0 sm:gap-0 mb-6 w-full max-w-lg mx-auto">
           <a
-            href={`tel:${company.phoneTel}`}
+            href={company.phoneHref}
             onClick={handlePhoneClick}
-            className="inline-flex items-center gap-2 bg-neu-accent text-neu-accent-foreground font-bold px-8 py-4 rounded-neu-md shadow-neu-raised-lg ring-1 ring-white/60 ring-inset transition-all hover:opacity-90 active:scale-95 text-lg border-r-2 border-[#2F6B4F]"
+            className="inline-flex items-center gap-2 bg-brand-gold text-brand-black font-bold px-8 py-4 rounded-l-full rounded-r-none shadow-neu-raised-lg transition-all hover:bg-brand-gold-dark active:scale-95 text-lg"
             style={{ borderTopRightRadius: 0, borderBottomRightRadius: 0 }}
           >
             <Phone className="h-5 w-5" />
@@ -42,17 +45,14 @@ export const Footer = () => {
           </a>
           <a
             href="#inspection-form"
-            className="inline-block font-bold px-8 py-4 rounded-neu-md border-2 border-[#2F6B4F] text-[#2F6B4F] bg-white shadow-neu-raised-lg transition-all hover:bg-[#E3E3E3] hover:text-[#4A5D6B]"
-            style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0, boxShadow: '0 4px 16px #2F6B4F22' }}
+            className="inline-block font-bold px-8 py-4 rounded-r-full rounded-l-none border border-brand-gold text-brand-gold bg-transparent shadow-neu-raised-lg transition-all hover:bg-white/5"
+            style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0, boxShadow: "0 4px 16px #000000AA" }}
           >
             Request Inspection
           </a>
         </div>
 
-        <p className="text-text-muted text-sm mb-4">{footer.license}</p>
-
-
-        <div className="flex justify-center gap-4 text-sm text-text-muted mb-8">
+        <div className="flex justify-center gap-4 text-sm text-white/70 mb-8">
           <button
             type="button"
             className="hover:text-text-primary transition-colors underline"
@@ -88,7 +88,7 @@ export const Footer = () => {
             </button>
             <h2 className="text-2xl font-bold mb-4">Privacy Policy</h2>
             <div className="space-y-4 text-sm text-gray-800">
-              <p><strong>All American Pest Control</strong> ("we", "us", or "our") operates www.AAPestpro.com (the "Site"). This page informs you of our policies regarding the collection, use, and disclosure of Personal Information we receive from users of the Site.</p>
+              <p><strong>{company.name}</strong> ("we", "us", or "our") operates {company.website} (the "Site"). This page informs you of our policies regarding the collection, use, and disclosure of Personal Information we receive from users of the Site.</p>
               <h3 className="font-semibold mt-4">Information Collection and Use</h3>
               <p>While using our Site, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include but is not limited to your name, email address, phone number, and postal address ("Personal Information").</p>
               <h3 className="font-semibold mt-4">Log Data</h3>
@@ -102,12 +102,12 @@ export const Footer = () => {
               <h3 className="font-semibold mt-4">Changes to This Privacy Policy</h3>
               <p>This Privacy Policy is effective as of [Effective Date] and will remain in effect except with respect to any changes in its provisions in the future, which will be in effect immediately after being posted on this page. We reserve the right to update or change our Privacy Policy at any time, and you should check this Privacy Policy periodically. Your continued use of the Service after we post any modifications to the Privacy Policy on this page will constitute your acknowledgment of the modifications and your consent to abide and be bound by the modified Privacy Policy.</p>
               <h3 className="font-semibold mt-4">Contact Us</h3>
-              <p>If you have any questions about this Privacy Policy, please contact us at 804-489-7465</p>
+              <p>If you have any questions about this Privacy Policy, please contact us at {company.phone}</p>
             </div>
           </div>
         </div>
 
-        <p className="text-text-muted text-xs">
+        <p className="text-white/50 text-xs">
           © {new Date().getFullYear()} {company.name}. All rights reserved.
         </p>
       </div>

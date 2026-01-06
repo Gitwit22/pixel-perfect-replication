@@ -45,9 +45,9 @@ export const StickyCallBar = () => {
             Bed Bug Emergency?
           </span>
           <a
-            href={`tel:${company.phoneTel}`}
+            href={`tel:${company.phone}`}
             onClick={handleClick}
-            className="flex items-center gap-2 bg-[#2F6B4F] text-white font-bold px-4 py-2 rounded-neu-md shadow-neu-raised transition-all hover:bg-[#4A5D6B] active:shadow-neu-pressed"
+            className="flex items-center gap-2 bg-brand-green text-white font-bold px-4 py-2 rounded-neu-md shadow-neu-raised transition-all hover:bg-neu-secondary active:shadow-neu-pressed"
           >
             <Phone className="h-4 w-4 text-white" />
             <span>TAP TO CALL NOW</span>

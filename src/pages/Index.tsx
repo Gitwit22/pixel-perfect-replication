@@ -1,31 +1,35 @@
 import { Helmet } from "react-helmet-async";
 import { StickyCallBar } from "@/components/sections/StickyCallBar";
+import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { SignsSection } from "@/components/sections/SignsSection";
-import { WhatToDoSection } from "@/components/sections/WhatToDoSection";
+import WhatToDoSection from "@/components/sections/WhatToDoSection";
 import { TreatmentOptions } from "@/components/sections/TreatmentOptions";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
-import { WhyChooseUs } from "@/components/sections/WhyChooseUs";
+import WhyChooseUs from "@/components/sections/WhyChooseUs";
 import { ServiceAreas } from "@/components/sections/ServiceAreas";
 import { Reviews } from "@/components/sections/Reviews";
-import { FAQ } from "@/components/sections/FAQ";
+
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Footer } from "@/components/sections/Footer";
-import { meta } from "@/data/content";
+import { analytics, company, meta } from "@/data/content";
 import { localBusinessSchema, faqSchema, organizationSchema, serviceSchema } from "@/data/schema";
+import { FaqSection } from "@/components/sections/FaqSection";
 
 const Index = () => {
+  const gaId = analytics.gaMeasurementId;
+
   return (
     <>
       <Helmet>
         {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C6GL0QCSZF"></script>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
         <script>
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-C6GL0QCSZF');
+            gtag('config', '${gaId}');
           `}
         </script>
         
@@ -34,32 +38,32 @@ const Index = () => {
         <meta name="keywords" content="bed bug exterminator, Richmond VA, pest control, bed bug removal, heat treatment, same day service, licensed exterminator, Henrico County, Chesterfield County" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="All-American Pest Control" />
+        <meta name="author" content={company.name} />
         <meta name="geo.region" content="US-VA" />
         <meta name="geo.placename" content="Richmond, Virginia" />
         <meta name="geo.position" content="37.5407;-77.4360" />
         <meta name="ICBM" content="37.5407, -77.4360" />
-        <link rel="canonical" href="https://aapestpro.com/bed-bug-exterminator-richmond-va" />
+        <link rel="canonical" href={`${company.website}/bed-bug-exterminator-richmond-va`} />
         
         {/* Open Graph */}
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://aapestpro.com/bed-bug-exterminator-richmond-va" />
-        <meta property="og:image" content="https://aapestpro.com/images/bed-bug-service-richmond.jpg" />
+        <meta property="og:url" content={`${company.website}/bed-bug-exterminator-richmond-va`} />
+        <meta property="og:image" content={`${company.website}/images/bed-bug-service-richmond.jpg`} />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:locale" content="en_US" />
-        <meta property="og:site_name" content="All-American Pest Control" />
+        <meta property="og:site_name" content={company.name} />
         
         {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
-        <meta name="twitter:image" content="https://aapestpro.com/images/bed-bug-service-richmond.jpg" />
+        <meta name="twitter:image" content={`${company.website}/images/bed-bug-service-richmond.jpg`} />
         
         {/* Business Info */}
-        <meta name="contact" content="804-489-7465" />
+        <meta name="contact" content={company.phone} />
         <meta name="coverage" content="Richmond, VA and surrounding areas" />
         
         {/* Technical SEO */}
@@ -91,16 +95,17 @@ const Index = () => {
         </script>
       </Helmet>
 
-      <main>
+      <main id="top">
+        <Header />
         <Hero />
         <SignsSection />
         <WhatToDoSection />
-        <TreatmentOptions />
-        <ProcessSteps />
+        
+        
         <WhyChooseUs />
         <ServiceAreas />
-        <Reviews />
-        <FAQ />
+        
+        <FaqSection />
         <FinalCTA />
         <Footer />
         <StickyCallBar />

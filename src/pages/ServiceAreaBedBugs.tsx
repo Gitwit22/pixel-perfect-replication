@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { serviceAreasVa } from "../data/serviceAreasVa";
+import { TreatmentOptions } from "@/components/sections/TreatmentOptions";
+import { ProcessSteps } from "@/components/sections/ProcessSteps";
 
 interface ServiceAreaBedBugsProps {
   city: string;
@@ -34,6 +37,7 @@ const faqs = (city: string) => [
   },
 ];
 
+
 const ServiceAreaBedBugs: React.FC<ServiceAreaBedBugsProps> = ({
   city,
   serviceType,
@@ -42,17 +46,52 @@ const ServiceAreaBedBugs: React.FC<ServiceAreaBedBugsProps> = ({
   mapQuery,
   slugCity,
 }) => {
+  const location = useLocation();
+  let resolvedCity = city;
+  let resolvedSlug = slugCity;
+  // If city is missing, extract slug from URL and look up city name
+  if (!resolvedCity) {
+    // Debug: print the current pathname
+    // eslint-disable-next-line no-console
+    console.log('Current pathname:', location.pathname);
+    // Try to extract slug from /bed-bug-treatment-:slug-va
+    let match = location.pathname.match(/bed-bug-treatment-([a-z0-9-]+)-va\/?/i);
+    if (match && match[1]) {
+      resolvedSlug = match[1];
+    } else {
+      // Try to extract slug from /service-areas/:slug
+      match = location.pathname.match(/service-areas\/?([a-z0-9-]+)/i);
+      if (match && match[1]) {
+        resolvedSlug = match[1];
+      }
+    }
+    // Debug: print the extracted slug
+    // eslint-disable-next-line no-console
+    console.log('Extracted slug:', resolvedSlug);
+    // Debug: print all available slugCity values
+    // eslint-disable-next-line no-console
+    console.log('Available slugCity values:', serviceAreasVa.map(a => a.slugCity));
+    const area = serviceAreasVa.find((a) => a.slugCity === resolvedSlug);
+    resolvedCity = area?.cityName || '';
+    // Debug: print the resolved city
+    // eslint-disable-next-line no-console
+    console.log('Resolved city:', resolvedCity);
+  }
   const title =
-    serviceType === "treatment"
-      ? `Bed Bug Treatment in ${city}, VA`
-      : `Bed Bug Inspection in ${city}, VA`;
+    resolvedCity
+      ? serviceType === "treatment"
+        ? `Bed Bug Treatment in ${resolvedCity}, VA`
+        : `Bed Bug Inspection in ${resolvedCity}, VA`
+      : 'Service Area Not Found';
   const metaDescription =
-    serviceType === "treatment"
-      ? `Professional bed bug treatment in ${city}, VA. Same-day inspections, heat & chemical options. Serving Henrico County & surrounding areas. Call ${phone}.`
-      : `Expert bed bug inspection in ${city}, VA. Fast, local service in Henrico County & nearby. Call ${phone} for a same-day inspection.`;
+    resolvedCity
+      ? serviceType === "treatment"
+        ? `Professional bed bug treatment in ${resolvedCity}, VA. Same-day inspections, heat & chemical options. Serving Henrico County & surrounding areas. Call ${phone}.`
+        : `Expert bed bug inspection in ${resolvedCity}, VA. Fast, local service in Henrico County & nearby. Call ${phone} for a same-day inspection.`
+      : 'Sorry, we could not find this service area.';
 
   // Find nearby cities for internal links
-  const area = serviceAreasVa.find((a) => a.slugCity === slugCity);
+  const area = serviceAreasVa.find((a) => a.slugCity === resolvedSlug);
   const nearbyLinks = area?.nearby.slice(0, 5).map((nearSlug) => {
     const nearArea = serviceAreasVa.find((a) => a.slugCity === nearSlug);
     if (!nearArea) return null;
@@ -99,7 +138,9 @@ const ServiceAreaBedBugs: React.FC<ServiceAreaBedBugsProps> = ({
             {phone}
           </a>
           <p className="text-base text-[#6F6F6F] mb-6 text-center">
-            {city} bed bug {serviceType} services for {countyLine}. Fast, local, and effective.
+            {resolvedCity
+              ? `${resolvedCity} bed bug ${serviceType} services for ${countyLine}. Fast, local, and effective.`
+              : 'Sorry, we could not find this service area.'}
           </p>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 w-full max-w-xl mx-auto">
             {services.map((s) => (
@@ -110,7 +151,7 @@ const ServiceAreaBedBugs: React.FC<ServiceAreaBedBugsProps> = ({
           <section className="w-full max-w-xl mx-auto mb-6">
             <h2 className="text-xl font-bold mb-4 text-[#2B2B2B]">Frequently Asked Questions</h2>
             <div className="space-y-4">
-              {faqs(city).map((faq, i) => (
+              {faqs(resolvedCity).map((faq, i) => (
                 <div key={i} className="bg-[#F2F2F2] rounded-neu-md shadow-neu-raised-sm p-4">
                   <strong className="text-[#2F6B4F]">{faq.q}</strong>
                   <div className="text-[#2B2B2B]">{faq.a}</div>
@@ -121,7 +162,7 @@ const ServiceAreaBedBugs: React.FC<ServiceAreaBedBugsProps> = ({
           {/* Google Map */}
           <div className="mb-6 w-full">
             <iframe
-              title={`Google Map of ${city}, VA`}
+              title={`Google Map of ${resolvedCity}, VA`}
               src={`https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&output=embed`}
               width="100%"
               height="300"
@@ -156,8 +197,119 @@ const ServiceAreaBedBugs: React.FC<ServiceAreaBedBugsProps> = ({
             </ul>
           </div>
         </div>
+        <TreatmentOptions />
+        <ProcessSteps />
+        {/* Inspection Form Section */}
+        <section id="lead-form" className="w-full max-w-2xl mx-auto mt-12 mb-8 bg-white rounded-2xl shadow-lg p-8">
+          <h2 className="text-2xl font-bold mb-4 text-[#2F6B4F]">Request a Free Bed Bug Inspection</h2>
+          <InspectionForm city={resolvedCity} />
+        </section>
       </div>
     </div>
+  );
+};
+
+const InspectionForm = ({ city }: { city: string }) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    zip: "",
+    callTime: "morning",
+    message: "",
+    consent: false,
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const { name, value, type } = e.target;
+    let checked = false;
+    if (type === "checkbox") {
+      checked = (e.target as HTMLInputElement).checked;
+    }
+    setFormData({
+      ...formData,
+      [name]: type === "checkbox" ? checked : value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    // Google Analytics event
+    if (window.gtag) {
+      window.gtag("event", "generate_lead", {
+        event_category: "Inspection Form",
+        event_label: `Service Area: ${city}`,
+      });
+    }
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, city }),
+      });
+      if (response.ok) {
+        alert("Thank you! We'll call you within 1 hour to schedule your free inspection.");
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          zip: "",
+          callTime: "morning",
+          message: "",
+          consent: false,
+        });
+      } else {
+        alert("Something went wrong. Please call us at 804-489-7465");
+      }
+    } catch (error) {
+      alert("Something went wrong. Please call us at 804-489-7465");
+    }
+    setIsSubmitting(false);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label className="block font-bold mb-1">Name</label>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required className="form-input w-full border border-black" />
+        </div>
+        <div>
+          <label className="block font-bold mb-1">Phone</label>
+          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} required className="form-input w-full border border-black" />
+        </div>
+        <div>
+          <label className="block font-bold mb-1">Email</label>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} className="form-input w-full border border-black" />
+        </div>
+        <div>
+          <label className="block font-bold mb-1">ZIP Code</label>
+          <input type="text" name="zip" value={formData.zip} onChange={handleChange} required className="form-input w-full border border-black" />
+        </div>
+        <div>
+          <label className="block font-bold mb-1">Best Time to Call</label>
+          <select name="callTime" value={formData.callTime} onChange={handleChange} className="form-select w-full border border-black">
+            <option value="morning">Morning (8am-12pm)</option>
+            <option value="afternoon">Afternoon (12pm-5pm)</option>
+            <option value="evening">Evening (5pm-8pm)</option>
+            <option value="anytime">Anytime</option>
+          </select>
+        </div>
+      </div>
+      <div>
+        <label className="block font-bold mb-1">Additional Details</label>
+        <textarea name="message" value={formData.message} onChange={handleChange} rows={3} className="form-input w-full border border-black" />
+      </div>
+      <div className="flex items-center gap-2">
+        <input type="checkbox" name="consent" checked={formData.consent} onChange={handleChange} required />
+        <label htmlFor="consent" className="text-sm">I consent to being contacted by A2 Pest Pros.</label>
+      </div>
+      <button type="submit" className="btn w-full bg-brand-green text-white font-bold py-3 rounded-lg shadow-md border-2 border-brand-green hover:bg-green-700 transition-all" style={{boxShadow: '0 4px 12px rgba(47,107,79,0.15)'}} disabled={isSubmitting}>
+        {isSubmitting ? "Submitting..." : "Request Free Inspection"}
+      </button>
+    </form>
   );
 };
 

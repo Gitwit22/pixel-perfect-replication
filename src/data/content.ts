@@ -2,9 +2,16 @@
 
 export const company = {
   name: "A2 Pest Pros",
-  phone: "804-489-7465",
-  phoneTel: "+18044897465",
   website: "https://a2pestpros.com",
+  phone: "(804) 489-7465",
+  phoneHref: "tel:+18044897465",
+  quoteUrl: "https://a2pestpros.com/",
+};
+
+
+export const analytics = {
+  // Google Analytics 4 measurement ID (update this with your own)
+  gaMeasurementId: "G-C6GL0QCSZF",
 };
 
 export const meta = {
@@ -204,6 +211,36 @@ export const reviews = {
       text: "I was embarrassed to call, but they were so understanding. No judgment, just solutions. The follow-up inspection gave us peace of mind.",
       name: "Michelle R.",
       location: "Chesterfield, VA",
+    },
+    {
+      rating: 4,
+      text: "Quick response and very knowledgeable staff. The treatment worked as promised. Would use again if needed!",
+      name: "David L.",
+      location: "Midlothian, VA",
+    },
+    {
+      rating: 5,
+      text: "Excellent service from start to finish. The team was friendly and explained every step. No more bed bugs!",
+      name: "Lisa P.",
+      location: "Glen Allen, VA",
+    },
+    {
+      rating: 4,
+      text: "Very professional and respectful. They answered all my questions and followed up after treatment.",
+      name: "Carlos S.",
+      location: "Short Pump, VA",
+    },
+    {
+      rating: 5,
+      text: "I appreciated the discreet service and honest advice. The heat treatment was fast and effective.",
+      name: "Emily W.",
+      location: "Mechanicsville, VA",
+    },
+    {
+      rating: 5,
+      text: "From the first call to the final inspection, everything was smooth. Highly recommend this company!",
+      name: "Brian K.",
+      location: "Hanover County, VA",
     },
   ],
 };
