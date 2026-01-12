@@ -63,5 +63,13 @@ export default defineType({
       type: 'image',
       options: {hotspot: true},
     }),
+    defineArrayMember({
+      // Custom Google Ad block that renders inline ads in content
+      type: 'adBlock',
+    }),
+    defineArrayMember({
+      // AdSense block to surface the "AdSense" insert option
+      type: 'adsense',
+    }),
   ],
 })

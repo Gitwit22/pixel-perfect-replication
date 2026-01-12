@@ -20,5 +20,5 @@ export type SanityPostSummary = {
 };
 
 export type SanityPostDetail = SanityPostSummary & {
-  bodyPlain?: string;
+  body?: any[];
 };

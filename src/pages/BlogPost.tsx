@@ -1,12 +1,14 @@
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
+import { PortableText } from "@portabletext/react";
 import { sanityClient, SanityPostDetail } from "@/lib/sanityClient";
 import { company } from "@/data/content";
 import PostCTA from "@/components/sections/PostCTA";
 import { StickyCallBar } from "@/components/sections/StickyCallBar";
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
+import { GoogleAd } from "@/components/GoogleAd";
 
 const postQuery = `*[_type == "post" && slug.current == $slug][0]{
   _id,
@@ -18,7 +20,7 @@ const postQuery = `*[_type == "post" && slug.current == $slug][0]{
   "categories": categories[]->title,
   "mainImage": mainImage.asset->url,
   "mainImageAlt": mainImage.alt,
-  "bodyPlain": pt::text(body)
+  body
 }`;
 
 const BlogPost = () => {
@@ -65,6 +67,21 @@ const BlogPost = () => {
   const description = post.excerpt ||
     "Learn more about bed bug prevention, identification, and treatment options from A2 Pest Pros.";
   const url = `${company.website}/blog/${post.slug}`;
+
+  const portableComponents = {
+    types: {
+      adBlock: ({ value }: { value: { slot?: string } }) => (
+        <div className="my-8">
+          <GoogleAd slot={value?.slot || "4144893944"} />
+        </div>
+      ),
+      adsense: ({ value }: { value: { slot?: string } }) => (
+        <div className="my-8">
+          <GoogleAd slot={value?.slot || "4144893944"} />
+        </div>
+      ),
+    },
+  };
 
   return (
     <>
@@ -130,22 +147,18 @@ const BlogPost = () => {
           )}
         </header>
 
-        {post.bodyPlain && (
-  <>
-    <article className="prose prose-sm sm:prose-base max-w-none text-[#111827]">
-      {post.bodyPlain.split("\n\n").map((para, idx) => (
-        <p key={idx} className="mb-4">
-          {para}
-        </p>
-      ))}
-    </article>
+        {post.body && (
+          <>
+            <article className="prose prose-sm sm:prose-base max-w-none text-[#111827]">
+              <PortableText value={post.body} components={portableComponents} />
+            </article>
 
-    <PostCTA
-      phone={company.phone}
-      quoteUrl={company.quoteUrl}
-    />
-  </>
-)}
+            <PostCTA
+              phone={company.phone}
+              quoteUrl={company.quoteUrl}
+            />
+          </>
+        )}
 
 
           

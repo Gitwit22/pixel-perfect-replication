@@ -2,12 +2,6 @@ import { useState } from "react";
 import { Phone, CheckCircle, Clock } from "lucide-react";
 import { company, finalCTA, form } from "@/data/content";
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 export const FinalCTA = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
