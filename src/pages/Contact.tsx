@@ -1,5 +1,6 @@
 import { Header } from "@/components/sections/Header";
 import { Footer } from "@/components/sections/Footer";
+import { GoogleAd } from "@/components/GoogleAd";
 import React, { useState } from "react";
 
 const initialFormData = {
@@ -143,6 +144,10 @@ const Contact = () => {
               {isSubmitting ? "Submitting..." : "Request Free Inspection"}
             </button>
           </form>
+        </div>
+        {/* AdSense placement just below the contact form */}
+        <div className="max-w-3xl mx-auto my-8">
+          <GoogleAd slot="1345973239" />
         </div>
       </main>
       <Footer />

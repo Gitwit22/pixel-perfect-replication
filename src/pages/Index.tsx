@@ -15,6 +15,7 @@ import { Footer } from "@/components/sections/Footer";
 import { analytics, company, meta } from "@/data/content";
 import { localBusinessSchema, faqSchema, organizationSchema, serviceSchema } from "@/data/schema";
 import { FaqSection } from "@/components/sections/FaqSection";
+import { GoogleAd } from "@/components/GoogleAd";
 
 const Index = () => {
   const gaId = analytics.gaMeasurementId;
@@ -99,6 +100,10 @@ const Index = () => {
         <Header />
         <Hero />
         <SignsSection />
+        {/* In-article AdSense placement below the Signs section */}
+        <div className="my-8">
+          <GoogleAd slot="1982082269" />
+        </div>
         <WhatToDoSection />
         
         

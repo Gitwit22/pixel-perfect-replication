@@ -9,6 +9,7 @@ import { Footer } from "@/components/sections/Footer";
 import { serviceAreasVa } from "@/data/serviceAreasVa";
 import { company } from "@/data/content";
 import { Phone, MapPin, ArrowRight, Shield, Clock, CheckCircle } from "lucide-react";
+import { GoogleAd } from "@/components/GoogleAd";
 
 // Group cities by region for better organization
 const regions = [
@@ -219,6 +220,11 @@ const Areas = () => {
             </div>
           </div>
         </section>
+
+        {/* AdSense placement before Local Experts section */}
+        <div className="my-8">
+          <GoogleAd slot="9462128797" />
+        </div>
 
         {/* Why Service Area Matters */}
         <section className="py-16 md:py-24 bg-white">
